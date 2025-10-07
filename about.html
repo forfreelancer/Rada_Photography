@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rada Photography Studio - About</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet"
+    />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111111;
+            color: #e0e0e0;
+            margin: 0;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        body.fade-in {
+            opacity: 1;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            color: #c7c7c7;
+            font-weight: 500;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2.5px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1D4ED8; /* Dark Blue */
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: #3B82F6; /* Lighter Blue */
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .img-wrapper {
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 12px 34px -10px rgba(29, 78, 216, 0.3);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .img-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 48px -8px rgba(29, 78, 216, 0.5);
+        }
+        [data-aos] {
+            transition-property: transform, opacity !important;
+            transition-duration: 0.6s !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        a.custom-link {
+            color: #3B82F6; /* Lighter Blue */
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        a.custom-link:hover,
+        a.custom-link:focus {
+            border-color: #3B82F6;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-80 shadow-lg" id="header">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider text-blue-500">Rada Photography</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90">
+            <a href="index.html" class="block text-center py-3 text-lg text-blue-400 hover:bg-blue-800 hover:bg-opacity-20 transition">Home</a>
+            <a href="about.html" class="block text-center py-3 text-lg text-blue-400 hover:bg-blue-800 hover:bg-opacity-20 transition">About</a>
+            <a href="portfolio.html" class="block text-center py-3 text-lg text-blue-400 hover:bg-blue-800 hover:bg-opacity-20 transition">Portfolio</a>
+            <a href="services.html" class="block text-center py-3 text-lg text-blue-400 hover:bg-blue-800 hover:bg-opacity-20 transition">Services</a>
+            <a href="contact.html" class="block text-center py-3 text-lg text-blue-400 hover:bg-blue-800 hover:bg-opacity-20 transition">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="pt-32 pb-20 md:pt-40 md:pb-32 bg-stone-900 min-h-screen flex items-center">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center mb-16" data-aos="fade-down" data-aos-duration="700">
+                    <h2 class="text-4xl md:text-5xl font-bold">About Rada Photography</h2>
+                    <p class="text-blue-400 mt-2 tracking-wide">Where Passion Meets the Lens</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16 max-w-7xl mx-auto">
+                    <div class="w-full md:w-1/2 img-wrapper" data-aos="fade-right" data-aos-delay="200" data-aos-duration="700">
+                        <img src="https://images.unsplash.com/photo-1520341280432-4491ac742582?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Photographer portrait" class="rounded-lg shadow-2xl w-full h-auto object-cover aspect-[4/5]" />
+                    </div>
+                    <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-delay="350" data-aos-duration="700">
+                        <h3 class="text-3xl font-bold mb-4 text-white tracking-tight">Hello, I'm Ajay.</h3>
+                        <p class="mb-5 leading-relaxed text-gray-300 text-lg">
+                            Photography isn't just my profession; it's my way of seeing the world. Since I first picked up a camera, I've been fascinated by the stories that a single image can tell. Based in the heart of the city, Rada Photography Studio was born from a desire to capture authentic moments and genuine emotions.
+                        </p>
+                        <p class="mb-6 leading-relaxed text-gray-300 text-lg">
+                            My style is a blend of documentary and fine art. I believe in creating images that are not only beautiful but also timeless. Whether it's the quiet joy of a wedding day, the vibrant energy of an event, or the unique personality in a portrait, my goal is to create a visual legacy you'll cherish for a lifetime.
+                        </p>
+                        <a href="contact.html" class="custom-link text-xl hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
+                            Let's create something beautiful together &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400 text-sm sm:text-base select-none">
+            <p>&copy; 2024 Rada Photography Studio. All Rights Reserved.</p>
+            <p class="mt-2">
+                Email: 
+                <a href="mailto:foxfreelancing21@gmail.com" class="hover:text-blue-400 transition">foxfreelancing21@gmail.com</a>
+                |
+                Phone: 
+                <a href="tel:8754328542" class="hover:text-blue-400 transition">8754328542</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fade-in body on page load
+            document.body.classList.add('fade-in');
+
+            // Initialize AOS with faster animation duration
+            AOS.init({
+                duration: 600,
+                once: true,
+                easing: 'ease-out-cubic',
+                offset: 50,
+            });
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
