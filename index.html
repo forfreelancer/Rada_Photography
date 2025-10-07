@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rada Photography Studio - Home</title>
+    <title>Rada Photography Studio – Home</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS (Animate On Scroll) Library -->
+
+    <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,14 +22,15 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet"
     />
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #111111;
-            color: #ffffff; /* White text */
+            color: #ffffff;
             margin: 0;
             overflow-x: hidden;
-            opacity: 0; /* Initially hidden for fade-in */
+            opacity: 0;
             transition: opacity 0.6s ease;
         }
         body.fade-in {
@@ -46,20 +53,20 @@
             bottom: -5px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #1D4ED8; /* Dark Blue-700 */
+            background-color: #1D4ED8;
             transition: width 0.3s ease;
             border-radius: 2px;
         }
         .nav-link:hover,
         .nav-link.active {
-            color: #3B82F6; /* Lighter Blue for hover */
+            color: #3B82F6;
         }
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
         }
         .btn-blue {
-            background-color: #1D4ED8; /* Dark Blue-700 */
+            background-color: #1D4ED8;
             color: #ffffff;
             font-weight: 700;
             padding: 0.75rem 2rem;
@@ -72,7 +79,7 @@
         }
         .btn-blue:hover,
         .btn-blue:focus {
-            background-color: #1E40AF; /* Darker Blue-800 */
+            background-color: #1E40AF;
             box-shadow: 0 6px 14px rgba(29, 78, 216, 0.5);
             transform: scale(1.05);
             outline: none;
@@ -100,7 +107,6 @@
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.9);
             backdrop-filter: saturate(180%) blur(10px);
         }
-        /* Typing animation styles */
         .typed-cursor {
             opacity: 1;
             animation: typedjsBlink 0.7s infinite;
@@ -115,13 +121,36 @@
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(29, 78, 216, 0.5);
         }
-        #stats{
+        #stats {
             border-radius: 10px;
             width: 83%;
             margin-left: 8%;
         }
+        /* Swiper Styles */
+        .swiper-container {
+            width: 100%;
+            padding-bottom: 40px; /* Space for pagination */
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: stretch; /* Make slides stretch to fill height */
+            padding: 0 10px; /* Add some spacing between slides */
+        }
+        .testimonial-card {
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensure cards have same height */
+        }
+        .swiper-pagination-bullet {
+            background: #334155;
+        }
+        .swiper-pagination-bullet-active {
+            background: #3B82F6;
+        }
     </style>
 </head>
+
 <body class="bg-black">
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50">
@@ -152,30 +181,24 @@
 
     <main>
         <!-- Hero Section -->
-        <!-- Hero Section -->
-<section id="home" class="hero min-h-screen bg-black flex items-center">
-    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-12"><br>
-        <!-- Left Side: Text Content -->
-        <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">I am Ajay</h1><br>
-            <p class="text-2xl sm:text-3xl text-blue-400 mb-8 h-10">
-                <span id="typed-text"></span>
-            </p>
-            <p class="text-lg text-gray-300 mb-10 max-w-lg mx-auto md:mx-0">
-                Welcome to my world of creative storytelling. I capture beautiful moments and turn them into timeless memories.
-            </p>
-            <a href="portfolio.html" class="btn-blue">
-                View My Work
-            </a>
-        </div>
-        <!-- Right Side: Image -->
-        <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
-            <img src="weddingphotos/profile.jpg" alt="Rada the photographer" class="rounded-lg shadow-2xl w-full max-w-md h-auto object-cover aspect-square mx-auto md:mx-0">
-        </div>
-    </div>
-</section>
-
-
+        <section id="home" class="hero min-h-screen bg-black flex items-center">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">I am Ajay</h1>
+                    <p class="text-2xl sm:text-3xl text-blue-400 mb-8 h-10">
+                        <span id="typed-text"></span>
+                    </p>
+                    <p class="text-lg text-gray-300 mb-10 max-w-lg mx-auto md:mx-0">
+                        Welcome to my world of creative storytelling. I capture beautiful moments and turn them into timeless memories.
+                    </p>
+                    <a href="portfolio.html" class="btn-blue">View My Work</a>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
+                    <img src="weddingphotos/profile.jpg" alt="Rada the photographer"
+                        class="rounded-lg shadow-2xl w-full max-w-md h-auto object-cover aspect-square mx-auto md:mx-0">
+                </div>
+            </div>
+        </section>
 
         <!-- About Us Section -->
         <section id="about-us" class="py-20 bg-black">
@@ -184,28 +207,29 @@
                     <h2 class="text-4xl font-bold" data-aos="fade-down">About Us</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Image Grid -->
                     <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
                         <div class="space-y-4">
-                            <img src="abt us.img/pranav-kumar-jain-MW0q7zt0OYU-unsplash.jpg" alt="Creative shot 1" class="about-image rounded-lg shadow-lg w-full h-auto object-cover">
-                             <img src="abt us.img/harshit-suryawanshi-o7zVfYjP5Vw-unsplash.jpg" alt="Candid moment" class="about-image rounded-lg shadow-lg w-full h-auto object-cover">
+                            <img src="abt us.img/pranav-kumar-jain-MW0q7zt0OYU-unsplash.jpg" alt="Creative shot 1"
+                                class="about-image rounded-lg shadow-lg w-full h-auto object-cover">
+                            <img src="abt us.img/harshit-suryawanshi-o7zVfYjP5Vw-unsplash.jpg" alt="Candid moment"
+                                class="about-image rounded-lg shadow-lg w-full h-auto object-cover">
                         </div>
                         <div>
-                             <img src="abt us.img/stefan-stefancik-QXevDflbl8A-unsplash.jpg" alt="Portrait" class="about-image rounded-lg shadow-lg w-full h-full object-cover">
+                            <img src="abt us.img/stefan-stefancik-QXevDflbl8A-unsplash.jpg" alt="Portrait"
+                                class="about-image rounded-lg shadow-lg w-full h-full object-cover">
                         </div>
                     </div>
-                    <!-- Content -->
                     <div data-aos="fade-left" data-aos-delay="200">
                         <h3 class="text-3xl font-bold mb-4 text-blue-400">Capturing Life's Fleeting Moments</h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
                             Rada Photography is more than just a studio; it's a passion for storytelling through the lens. We believe every click of the shutter is a chance to freeze a moment in time, preserving genuine emotions and authentic interactions. Our creative approach ensures that we capture the essence of every subject, whether it's a grand wedding or a simple portrait. We are dedicated to creating a visual legacy for you, crafting beautiful, high-quality images you will cherish for a lifetime. Let us tell your story.
-                        </p><br><br>
-                         <a href="about.html" class="btn-outline mt-6">Learn More</a>
+                        </p>
+                        <br /><br />
+                        <a href="about.html" class="btn-outline mt-6">Learn More</a>
                     </div>
                 </div>
             </div>
         </section>
-
 
         <!-- Stats Section -->
         <section id="stats" class="py-20 bg-gray-900">
@@ -225,42 +249,42 @@
                     </div>
                 </div>
             </div>
-        </section><br><br>
+        </section>
+        <br /><br />
 
         <!-- Our Works Section -->
-<section id="our-works" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-12" data-aos="fade-down">Our Works</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <!-- Gallery Item 1 -->
-            <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in">
-                <img src="weddingphotos/pexels-suraj-galgale-1822752-16196490.jpg" alt="Wedding Photography" class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+        <section id="our-works" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-12" data-aos="fade-down">Our Works</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in">
+                        <img src="weddingphotos/pexels-suraj-galgale-1822752-16196490.jpg" alt="Wedding Photography"
+                            class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="portraitphotos/pexels-impresio-studio-2155869824-33934912.jpg" alt="Portrait Photography"
+                            class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="babyphotos/pexels-vika-glitter-392079-1648375.jpg" alt="Event Photography"
+                            class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in">
+                        <img src="weddingphotos/pexels-bhoopal-m-642163-1446161.jpg" alt="Engagement Photography"
+                            class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="babyphotos/pexels-vika-glitter-392079-1648377.jpg" alt="Baby Shoot Photography"
+                            class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="product/rachit-tank-2cFZ_FB08UM-unsplash.jpg" alt="Product Photography"
+                            class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+                <a href="portfolio.html" class="btn-blue" data-aos="fade-up">View More</a>
             </div>
-            <!-- Gallery Item 2 -->
-            <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
-                <img src="portraitphotos/pexels-impresio-studio-2155869824-33934912.jpg" alt="Portrait Photography" class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
-            </div>
-            <!-- Gallery Item 3 -->
-            <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
-                <img src="babyphotos/pexels-vika-glitter-392079-1648375.jpg" alt="Event Photography" class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
-            </div>
-            <!-- Gallery Item 4 -->
-            <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in">
-                <img src="weddingphotos/pexels-bhoopal-m-642163-1446161.jpg" alt="Engagement Photography" class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
-            </div>
-            <!-- Gallery Item 5 -->
-            <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
-                <img src="babyphotos/pexels-vika-glitter-392079-1648377.jpg" alt="Baby Shoot Photography" class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
-            </div>
-            <!-- Gallery Item 6 -->
-            <div class="gallery-item rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
-                <img src="product/rachit-tank-2cFZ_FB08UM-unsplash.jpg" alt="Product Photography" class="w-full h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
-            </div>
-        </div>
-        <a href="portfolio.html" class="btn-blue" data-aos="fade-up">View More</a>
-    </div>
-</section>
-
+        </section>
 
         <!-- Custom Package CTA -->
         <section id="cta" class="py-20 bg-black">
@@ -272,6 +296,86 @@
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4" data-aos="fade-up" data-aos-delay="200">
                     <a href="contact.html" class="btn-outline w-full sm:w-auto">Get a Quote</a>
                     <a href="contact.html" class="btn-blue w-full sm:w-auto">Book Your Free Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-12" data-aos="fade-down">What Our Clients Say</h2>
+
+                <!-- Swiper container -->
+                <div class="swiper-container" data-aos="fade-up">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card bg-black p-8 rounded-lg">
+                                <div class="flex justify-center mb-4 text-blue-400">
+                                    <!-- 5 Star Icons -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
+                                <p class="text-gray-300 mb-6 italic">
+                                    "The best photography experience! Rada made us feel so comfortable, and the final photos were absolutely breathtaking. Highly recommended!"
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <img src="https://placehold.co/100x100/FFFFFF/1D4ED8?text=A" alt="Client 1"
+                                        class="w-12 h-12 rounded-full mr-4">
+                                    <h4 class="font-bold text-lg">Anjali & Rohan</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card bg-black p-8 rounded-lg">
+                                <div class="flex justify-center mb-4 text-blue-400">
+                                    <!-- 5 Star Icons (repeat) -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
+                                <p class="text-gray-300 mb-6 italic">
+                                    "Professional, creative, and incredibly talented. The photos for our brand were exactly what we envisioned. Will definitely work with Rada again."
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <img src="https://placehold.co/100x100/FFFFFF/1D4ED8?text=S" alt="Client 2"
+                                        class="w-12 h-12 rounded-full mr-4">
+                                    <h4 class="font-bold text-lg">Sanjay P.</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card bg-black p-8 rounded-lg">
+                                <div class="flex justify-center mb-4 text-blue-400">
+                                    <!-- 5 Star Icons (repeat) -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
+                                <p class="text-gray-300 mb-6 italic">
+                                    "Captured our family portraits perfectly. The pictures are a treasure we will keep forever. Thank you for your patience and wonderful work!"
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <img src="https://placehold.co/100x100/FFFFFF/1D4ED8?text=M" alt="Client 3"
+                                        class="w-12 h-12 rounded-full mr-4">
+                                    <h4 class="font-bold text-lg">The Mehta Family</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination mt-8"></div>
                 </div>
             </div>
         </section>
@@ -288,9 +392,11 @@
             </p>
         </div>
     </footer>
-    
-    <!-- Typed.js for the typing animation -->
+
+    <!-- Typed.js -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -319,8 +425,8 @@
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-            
-            // Initialize Typed.js
+
+            // Typed.js initialization
             var typed = new Typed('#typed-text', {
                 strings: ['A Photographer.', 'A Videographer.', 'An Editor.'],
                 typeSpeed: 50,
@@ -337,12 +443,12 @@
                 { id: 'stat2', suffix: '+' },
                 { id: 'stat3', suffix: '+' }
             ];
-            
+
             const animateCounter = (el, suffix) => {
                 const target = +el.getAttribute('data-target');
                 let current = 0;
-                const duration = 2000; // 2 seconds
-                const stepTime = 20; // update every 20ms
+                const duration = 2000; // 2s
+                const stepTime = 20;
                 const steps = duration / stepTime;
                 const increment = target / steps;
 
@@ -364,14 +470,39 @@
                             const el = document.getElementById(counter.id);
                             animateCounter(el, counter.suffix);
                         });
-                        observer.unobserve(statsSection); // Animate only once
+                        observer.unobserve(statsSection);
                     }
                 });
-            }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+            }, { threshold: 0.5 });
 
             if (statsSection) {
-               observer.observe(statsSection);
+                observer.observe(statsSection);
             }
+
+            // Swiper initialization
+            var swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                 slidesPerView: 1,
+                spaceBetween: 20,
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    }
+                }
+            });
         });
     </script>
 </body>
